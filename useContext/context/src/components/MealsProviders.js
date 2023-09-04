@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
-const MealsContext = React.createContext();
+export const MealsContext = React.createContext();
 
-const MealsData = ["Chicken Soup", "Lasagna", "Tiramisu"];
+const MealsData = ["Chicken Soup", "Lasagna", "Tiramisu", "Coffee"];
 
 const MealsProvider = ({ children }) => {
   const [meals, setMeals] = useState(MealsData);
