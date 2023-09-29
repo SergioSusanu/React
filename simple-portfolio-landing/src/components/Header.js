@@ -37,8 +37,9 @@ const Header = () => {
   const [headerShown, setHeaderShown] = useState(true)
 
  
-  const handleClick = (anchor) => () => {
-    const id = `${anchor}-section`;
+  const handleClick = (e) => {
+    e.preventDefault();
+    const id = `${e.target.id}-section`;
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({
@@ -79,7 +80,6 @@ const Header = () => {
       transitionDuration=".3s"
       transitionTimingFunction="ease-in-out"
       backgroundColor="#18181b"
-      
       style={headerVis}
     >
       <Box color="white" maxWidth="1280px" margin="0 auto">
@@ -105,8 +105,12 @@ const Header = () => {
           <nav>
             <HStack spacing={8}>
               {/* Add links to Projects and Contact me section */}
-              <a href="#projects-section">Projects</a>
-              <a href="#contactme-section">Contact Me</a>
+              <a id="projects" onClick={handleClick}>
+                Projects
+              </a>
+              <a onClick={handleClick} id="contactme">
+                Contact Me
+              </a>
             </HStack>
           </nav>
         </HStack>
